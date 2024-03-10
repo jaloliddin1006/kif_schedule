@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-v5yrpdk2q!bawhoqgu=jozu5w#-0by&se8um-)yd&n^gfw5bt^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["schedule.mamatmusayev.uz"]
 
 # CSRF_TRUSTED_ORIGINS = [
 #     'https://oqdevpy.jprq.live',
