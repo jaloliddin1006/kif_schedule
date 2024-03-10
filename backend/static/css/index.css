@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans;
+  overflow-x: hidden;
+}
+
+/* header start */
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: #032330;
+  color: white;
+  padding: 10px;
+  height: 8.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 15px;
+}
+.header .header_wrap {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 3rem;
+  gap: 1.5rem;
+}
+.header img {
+  width: 100px;
+}
+.header .title h2 {
+  color: #fff;
+  line-height: 25px;
+  font-size: 21px;
+}
+
+/* header end */
+
+/* sidebar start */
+.sidebar {
+  background: #032330;
+  font-family: "Lato", sans-serif;
+  height: 100%;
+  width: 20vw;
+  position: fixed;
+  top: 8.5rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar_content {
+  position: relative;
+}
+.sidebar_content a {
+  width: calc(100% - 25px);
+  background-color: transparent;
+  color: #eee !important;
+  padding: 20px 25px 20px 35px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.8px;
+  transition: 0.3s all;
+  cursor: pointer;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.sidebar_content ion-icon {
+  font-size: 20px;
+}
+.sidebar_content a.active,
+.sidebar_content a:hover {
+  background-color: #eee;
+  color: #032330 !important;
+}
+.scaner {
+  background-color: #fff;
+  width: 180px;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+}
+.scaner img {
+  width: 160px;
+}
+.scaner p {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+/* sidebar end*/
+
+/* main start */
+.main_wrapper {
+  width: 80vw;
+  position: relative;
+  top: 8.5rem;
+  margin-left: 20vw;
+  min-height: calc(100dvh - 8.5rem); 
+  overflow-y: scroll;
+  background-color: #eee;
+  padding: 2rem 4rem;
+}
+.main_title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+#carouselAdminstration {
+  border-radius: 10px;
+}
+#carouselAdminstration .carousel-inner {
+  border-radius: 10px;
+}
+#carouselAdminstration .carousel-item {
+  border-radius: 10px;
+}
+.adminstration_wrapper {
+  display: flex;
+  gap: 25px;
+  border-radius: 10px;
+}
+.carousel#carouselAdminstration {
+  border-radius: 10px;
+  padding: 30px 80px;
+  box-shadow: 0 0px 34px rgba(0, 0, 0, 0.273);
+  width: 90%;
+  margin: 0 auto;
+}
+
+#carouselAdminstration .carousel-item img {
+  height: auto;
+  width: 22vw;
+  object-fit: cover;
+  border-radius: 10px;
+}
+#carouselAdminstration .carousel-control-prev-icon {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 50% 50%;
+}
+#carouselAdminstration .carousel-control-next-icon {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 50% 50%;
+}
+#carouselAdminstration .carousel-control-prev,
+#carouselAdminstration .carousel-control-next {
+  width: 80px;
+}
+.administration_content h2 {
+  margin-top: 12vh;
+  font-size: 28px;
+  font-weight: 600;
+}
+.administration_content p {
+  font-size: 22px;
+}
+/* main end */
+
+/* home page start*/
+#carouselHome .carousel-inner {
+  border-radius: 10px;
+}
+#carouselHome .carousel-item {
+  border-radius: 10px;
+}
+#carouselHome .carousel-item img {
+  height: 550px;
+  border-radius: 10px;
+}
+#carouselHome .carousel-control-prev-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+}
+#carouselHome .carousel-control-next-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+}
+#carouselHome .carousel-control-prev,
+#carouselHome .carousel-control-next {
+  width: 80px;
+}
+.card_body {
+  margin: 50px;
+  color: #333;
+}
+.card_title {
+  font-size: 28px;
+  font-weight: 600;
+}
+.card_text {
+  font-size: 35px;
+  line-height: 35px;
+}
+/* home page end*/
+
+/* news page start */
+#carouselNews .carousel-inner {
+  border-radius: 10px;
+}
+#carouselNews .carousel-item {
+  border-radius: 10px;
+}
+#carouselNews .carousel-item img {
+  height: 600px;
+  border-radius: 10px;
+}
+#carouselNews .carousel-control-prev-icon {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 100% 100%;
+}
+#carouselNews .carousel-control-next-icon {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 100% 100%;
+}
+#carouselNews .carousel-control-prev,
+#carouselNews .carousel-control-next {
+  width: 80px;
+}
+#carouselNews .carousel-caption {
+  background-color: #00000065;
+  border-radius: 15px;
+}
+#carouselNews .carousel-caption h5 {
+  font-size: 25px;
+  font-weight: 600;
+}
+#carouselNews .carousel-caption p {
+  font-size: 20px;
+}
+#carouselNews .carousel-caption a {
+  font-size: 24px;
+  padding: 10px 40px;
+}
+/* news page end */
+/* schedule start */
+
+.table tbody td:first-child {
+  font-weight: bold;
+}
+.table thead th,
+.table tbody td {
+  text-align: center;
+  font-size: 22px;
+}
+.table tbody td.exist {
+  background-color: rgb(246, 198, 183);
+}
+/* schedule end */
+/* detail start */
+.home_page .back{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.detail_wrap{
+  display: flex;
+  margin-top: 50px;
+  gap: 25px;
+}
+.detail_content{
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 8px 14px rgba(0, 0, 0, 0.173);
+}
+.detail_content h3{
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.detail_content p{
+  font-size: 22px;
+  line-height: 35px;
+}
+.detail_img{
+  /* width: auto; */
+  /* max-width: 500px; */
+  border-radius: 15px;
+}
+.detail_img img{
+  box-shadow: 5px 8px 14px rgba(0, 0, 0, 0.173);
+  /* width: auto; */
+  max-width: 700px;
+
+  height: auto;
+  border-radius: 15px;
+}
+/* detail end */

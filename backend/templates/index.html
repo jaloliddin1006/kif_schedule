@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block sidebar %}
+
+      <div class="sidebar_content">
+        <a href="{% url 'about' %}" id="dashboard__product" class="active">
+          <ion-icon name="home-outline"></ion-icon>
+          Fakultet haqida
+        </a>
+        <a href="{% url 'dekanat' %}" id="dashboard__blogs">
+          <ion-icon name="apps-outline"></ion-icon>
+          Ma'muriyat
+        </a>
+        <a href="{% url 'students' %}" >
+          <ion-icon name="book-outline"></ion-icon>
+          Iqtidorli talabalar
+        </a>
+        <a href="{% url 'news' %}">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          Yangiliklar
+        </a>
+        <a href="{% url 'schedule' %}">
+          <ion-icon name="receipt-outline"></ion-icon>
+          Dars jadvali
+        </a>
+       
+        <div class="scaner">
+          <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
+          <p>Scan me</p>
+        </div>
+      </div>
+      
+      {% endblock sidebar %}
+
+
+
+      {% block content %}
+
+      <div class="home_page">
+        <h1 class="main_title">Fakultet haqida</h1>
+        <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+              <img src="{{ about.image1.url }}" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <img src="{{ about.image2.url }}" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <img src="{{ about.image3.url }}" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="card_body">
+          <h5 class="card_title">{{ about.title }}</h5>
+          <p class="card_text">{{ about.body|safe }} 
+        </div>
+      </div>
+  
+
+    {% endblock content %}

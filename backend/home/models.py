@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 
 
 class AboutFaculty(models.Model):
+    title = models.CharField(max_length=250, null=True)
     image1 = models.ImageField(upload_to='about/')
     image2 = models.ImageField(upload_to='about/')
     image3 = models.ImageField(upload_to='about/')
@@ -33,3 +34,9 @@ class News(models.Model):
         return self.title[:50]
     
     
+class Students(models.Model):
+    image = models.ImageField(upload_to='students/')
+    body = RichTextField()
+    
+    def __str__(self):
+        return self.body[:50]

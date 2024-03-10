@@ -1,0 +1,166 @@
+.sidebar {
+    width: 20vw;
+    background-color: #e2dbdb;
+    height: 80vh;
+    margin-left: 10px;
+    padding-right: 20px;
+    font-size: 45px;
+    
+
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #202541;
+    transition: 0.3s;
+    text-size-adjust: 20px;
+    font-size: 30px;
+    font-family: serif;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.bottom {
+    width: 100%;
+    height: 25vh;
+    margin-top: 4vh;
+    color: rgb(43, 51, 88);
+    padding: 10px;
+    text-align: center;
+    align-self: flex-end;
+    font-size: 25px;
+    bottom: 0;
+}
+
+
+.row {
+    background-color: #f0e8e8;
+
+}
+
+.header {
+    background-color: #161a2e; /* Header rangi */
+    color: white; /* O'zingiz istagan rangni qo'shishingiz mumkin */
+    padding: 10px;
+    height: 15vh;
+    display: flex; /* Flexboxni yoqish */
+    flex-direction: row; /* Balandlik va eni almashtirish */
+    align-items: flex-start; /* Yonlikni o'zgartirish */
+    padding-left: 15px;
+    font-family: serif;
+}
+
+.header img {
+    padding-left: 15px;
+    margin-right: 20px;
+    width: 145px;
+}
+
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    color: white; /* O'zingiz istagan rangni qo'shishingiz mumkin */
+    padding: 10px;
+    text-align: center;
+    background-color: #161a2e; /* Footer rangi */
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    align-items: flex-start; /* Bu qatori o'zgartirildi */
+    cursor: pointer;
+}
+
+
+
+.card img {
+    width: 250px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+
+
+.card-img{
+    width: 500px;
+
+}
+
+
+
+.carousel {
+
+    border-radius:10px;
+}
+
+.carousel-item img {
+    height: auto; /* Qisqa variant - avtomatik o'lchamni saqlash */
+    max-height: 50vh; /* Maksimal o'lcham - 60vh */
+    width: 100%; /* To'liq ekran qoplamasiga to'g'ri keladi */
+    min-height: 50vh;
+    object-fit: cover; /* Rasmni o'zi qoniqishga to'g'ri kelishi */
+}
+
+.carousel-item {
+    overflow: hidden; /* Qolgan qismlarni yashirish */
+    border-radius:10px;
+}
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Orqa fon rangi */
+    border-radius: 10px;
+    color: white; /* Matn rangi */
+    padding: 10px; /* Padding */
+}
+
+
+
+
+
+
+.card-image img {
+    width: 100%;
+    min-height: 100px;
+}
+
+
+.card-body {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 8px 14px rgba(0, 0, 0, 0.5); /* Shadow qo'shish */
+}
+
+/* Qo'shgan shadow o'lchamini o'zgartirish uchun */
+.shadow {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.modal {
+    margin-top: 10vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    max-width: 80vw;
+    margin: 0 auto;
+}

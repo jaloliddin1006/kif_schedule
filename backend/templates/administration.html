@@ -5,19 +5,19 @@
 {% block sidebar %}
 
       <div class="sidebar_content">
-        <a href="{% url 'about' %}" id="dashboard__product">
+        <a href="{% url 'about' %}" id="dashboard__product" >
           <ion-icon name="home-outline"></ion-icon>
-          KIF haqida
+          Fakultet haqida
         </a>
-        <a href="{% url 'dekanat' %}" id="dashboard__blogs">
+        <a href="{% url 'dekanat' %}" id="dashboard__blogs" class="active">
           <ion-icon name="apps-outline"></ion-icon>
           Ma'muriyat
         </a>
-        <a href="{% url 'students' %}">
+        <a href="{% url 'students' %}" >
           <ion-icon name="book-outline"></ion-icon>
           Iqtidorli talabalar
         </a>
-        <a href="{% url 'news' %}"   class="active">
+        <a href="{% url 'news' %}">
           <ion-icon name="newspaper-outline"></ion-icon>
           Yangiliklar
         </a>
@@ -38,45 +38,31 @@
 
       {% block content %}
 
+
         <div class="home_page">
-          <h1 class="main_title">Yangiliklar</h1>
-          <div id="carouselNews" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              {% for i in news %}
-
-              <button
-                type="button"
-                data-bs-target="#carouselNews"
-                data-bs-slide-to="{{ forloop.counter0 }}"
-                {% if forloop.counter == 1 %}  class="active" {% endif %}
-                aria-current="true"
-                aria-label="{{i.title}}">
-              </button>
-              {% endfor %}
-
-            </div>
+          <h1 class="main_title">Fakultet Ma'muriyati</h1>
+          <div
+            id="carouselAdminstration"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
             <div class="carousel-inner">
-              {% for new in news %}
-
+              {% for people in dekanat %}
               <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}" data-bs-interval="4000">
-                <img src="{{ new.image.url }}" class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>{{ new.title }}</h5>
-                  <p>
-                    {{ new.subtitle }}...  
-                  </p>
-                  <a href="{% url 'detail' new.id %}" class="btn btn-primary">Batafsil</a>
+                <div class="adminstration_wrapper">
+                  <img src="{{ people.image.url }}" width="100" alt="{{ people.image }}" />
+                  <div class="administration_content">
+                    {{ people.body|safe }}
+                  </div>
                 </div>
               </div>
               {% endfor %}
-
-              
 
             </div>
             <button
               class="carousel-control-prev"
               type="button"
-              data-bs-target="#carouselNews"
+              data-bs-target="#carouselAdminstration"
               data-bs-slide="prev"
             >
               <span
@@ -88,7 +74,7 @@
             <button
               class="carousel-control-next"
               type="button"
-              data-bs-target="#carouselNews"
+              data-bs-target="#carouselAdminstration"
               data-bs-slide="next"
             >
               <span
@@ -99,4 +85,4 @@
             </button>
           </div>
         </div>
-     {% endblock content %}
+    {% endblock content %}

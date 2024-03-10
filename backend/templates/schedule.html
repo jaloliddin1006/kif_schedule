@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block sidebar %}
+
+      <div class="sidebar_content">
+        <a href="{% url 'about' %}" id="dashboard__product">
+          <ion-icon name="home-outline"></ion-icon>
+          KIF haqida
+        </a>
+        <a href="{% url 'dekanat' %}" id="dashboard__blogs">
+          <ion-icon name="apps-outline"></ion-icon>
+          Ma'muriyat
+        </a>
+        <a href="{% url 'students' %}">
+          <ion-icon name="book-outline"></ion-icon>
+          Iqtidorli talabalar
+        </a>
+        <a href="{% url 'news' %}">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          Yangiliklar
+        </a>
+        <a href="{% url 'schedule' %}"  class="active">
+          <ion-icon name="receipt-outline"></ion-icon>
+          Dars jadvali
+        </a>
+       
+        <div class="scaner">
+          <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
+          <p>Scan me</p>
+        </div>
+      </div>
+      
+      {% endblock sidebar %}
+
+
+
+      {% block content %}
+
+      <div class="home_page">
+        <h1 class="main_title">Dars jadvali</h1>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Xonalar/Paralar</th>
+              <th>1-para</th>
+              <th>2-para</th>
+              <th>3-para</th>
+              <th>4-para</th>
+              <th>5-para</th>
+              <th>6-para</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>901-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>407-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>305-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>304-xona</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>601-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>603-xona</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>502-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>502-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>502-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>404-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>402-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>404-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>402-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>404-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+            </tr>
+            <tr>
+              <td>402-xona</td>
+              <td>-</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>bor</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      {% endblock content %}

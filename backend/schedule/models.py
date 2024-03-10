@@ -90,14 +90,14 @@ class Schedule(BaseModel):
         'Chorshanba', 'Chorshanba'), ('Payshanba', 'Payshanba'), ('Juma', 'Juma'), ('Shanba', 'Shanba')), verbose_name="Kun", default="Dushanba")
     para = models.ForeignKey(Para, on_delete=models.SET_NULL, verbose_name="Juftlik", null=True)
     week = models.CharField(max_length=20, choices=(('full', 'full'), ('odd', 'odd'), ('even', 'even')), verbose_name="Hafta", default="full")
-    semester = models.CharField(max_length=20, choices=(('1', 'Kuzgi'), ('2', 'Bahorgi')), verbose_name="Semestr", default="1")
+    semester = models.CharField(max_length=20, choices=(('1', 'Kuzgi'), ('2', 'Bahorgi')), verbose_name="Semestr", default="2")
 
     def __str__(self):
         return f"{self.group} - {self.subject}"
 
     class Meta:
-        verbose_name = "Dars jadvali"
-        verbose_name_plural = "Dars jadvali"
+        verbose_name = "Iqtidorli Talabalar"
+        verbose_name_plural = "Iqtidorli Talabalar"
     
     # def get_para_display(self):
 

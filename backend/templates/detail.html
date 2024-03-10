@@ -2,43 +2,54 @@
 {% load static %}
 
 
+{% block sidebar %}
 
-{% block menu %}
-<div>
-    <a href="{% url 'about' %}" class="btn btn-secondary p-4 m-2 ">KIF haqida</a>
-    <a href="{% url 'dekanat' %}" class="btn btn-secondary p-4 m-2 ">Ma'muriyat</a>
-    <a href="{% url 'news' %}" class="btn btn-secondary p-4 m-2 active">Yangiliklar</a>
-    <a href="" class="btn btn-secondary p-4 m-2">Dars Jadvali</a>
-</div>
-{% endblock menu %}
-
-
-{% block content %}
-
-
-
-
-<div class="col-9">
-    <h2 class='m-2 mb-5 mt-5 text-white'>
-        <a href="{% url 'news' %}" class='text-dark btn btn-secondary '><img src="{% static 'img/back.svg'%} " width='25px'>   Ortga</a>
-    </h2>
-
-    <div class="row">
-        <div   class="main-content pr-4" style="overflow-y: auto; height: 60vh; width: 40vw" >
-            <div class="card-body ml-5">
-                <h3>{{ new.title }}</h3>
-                {{ new.body|safe}}
-                <p class="card-text"><small class="text-muted">{{ new.date }}</small></p>
-            </div>
+      <div class="sidebar_content">
+        <a href="{% url 'about' %}" id="dashboard__product">
+          <ion-icon name="home-outline"></ion-icon>
+          KIF haqida
+        </a>
+        <a href="{% url 'dekanat' %}" id="dashboard__blogs">
+          <ion-icon name="apps-outline"></ion-icon>
+          Ma'muriyat
+        </a>
+        <a href="{% url 'students' %}">
+          <ion-icon name="book-outline"></ion-icon>
+          Iqtidorli talabalar
+        </a>
+        <a href="{% url 'news' %}"   class="active">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          Yangiliklar
+        </a>
+        <a href="{% url 'schedule' %}">
+          <ion-icon name="receipt-outline"></ion-icon>
+          Dars jadvali
+        </a>
+       
+        <div class="scaner">
+          <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
+          <p>Scan me</p>
         </div>
+      </div>
+      
+      {% endblock sidebar %}
 
-        <div class='col-5  pt-5'>
-            <div class="card-image ">
-                <img src="{{ new.image.url }}" alt="new" class="shadow">
+
+
+      {% block content %}
+        <div class="home_page">
+          <a href="{% url 'news' %}" class="btn btn-dark back"><ion-icon name="arrow-back-outline"></ion-icon>Ortga</a>
+          <div class="detail_wrap">
+            <div class="detail_content">
+              <h3>{{ new.title }}</h3>
+            <p>
+              {{ new.body|safe}}
+            </p>
             </div>
+            <div class="detail_img">
+              <img src="{{ new.image.url }}" alt="">
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+        {% endblock content %}
 
-
-{% endblock content %}

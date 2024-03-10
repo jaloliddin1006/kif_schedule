@@ -116,8 +116,8 @@ class Migration(migrations.Migration):
                 ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='schedule.teacher', verbose_name="O'qituvchi")),
             ],
             options={
-                'verbose_name': 'Dars jadvali',
-                'verbose_name_plural': 'Dars jadvali',
+                'verbose_name': 'Iqtidorli Talabalar',
+                'verbose_name_plural': 'Iqtidorli Talabalar',
             },
         ),
     ]

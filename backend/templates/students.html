@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block sidebar %}
+
+      <div class="sidebar_content">
+        <a href="{% url 'about' %}" id="dashboard__product">
+          <ion-icon name="home-outline"></ion-icon>
+          KIF haqida
+        </a>
+        <a href="{% url 'dekanat' %}" id="dashboard__blogs">
+          <ion-icon name="apps-outline"></ion-icon>
+          Ma'muriyat
+        </a>
+        <a href="{% url 'students' %}" class="active">
+          <ion-icon name="book-outline"></ion-icon>
+          Iqtidorli talabalar
+        </a>
+        <a href="{% url 'news' %}">
+          <ion-icon name="newspaper-outline"></ion-icon>
+          Yangiliklar
+        </a>
+        <a href="{% url 'schedule' %}">
+          <ion-icon name="receipt-outline"></ion-icon>
+          Dars jadvali
+        </a>
+       
+        <div class="scaner">
+          <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
+          <p>Scan me</p>
+        </div>
+      </div>
+      
+      {% endblock sidebar %}
+
+
+
+      {% block content %}
+
+      <div class="home_page">
+        <h1 class="main_title">Iqtidorli talabalar</h1>
+        <div
+          id="carouselAdminstration"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+        <div class="carousel-inner">
+          {% for people in students %}
+          <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}" data-bs-interval="4000">
+            <div class="adminstration_wrapper">
+              <img src="{{ people.image.url }}" width="100" alt="{{ people.image }}" />
+              <div class="administration_content">
+                {{ people.body|safe }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselAdminstration"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselAdminstration"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+    {% endblock content %}
