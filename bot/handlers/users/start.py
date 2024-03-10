@@ -22,7 +22,7 @@ async def start_bot(message: types.Message, state=FSMContext):
         # print(a)
     await message.answer(f"Assalomu alaykum {user_.full_name}", reply_markup=menu_btn)
 
-@dp.message_handler(text="📆 Dars jadvali")
+@dp.message_handler(text="📆 Iqtidorli Talabalar")
 async def schedule_func(message: types.Message):
     await message.answer("Kursni tanlang", reply_markup=schedule_kurs_btn_func())
 
@@ -48,7 +48,7 @@ async def schedule_func(call: types.CallbackQuery):
     group_id = call.data.split("_")[-1]
     schedule = get_group_schedule(group_id=group_id)
     group_name = get_group_info(group_id).get("academic_code", "Nomalum")
-    schedule_text = f"   <b>{group_name} - guruh dars jadvali </b>\n\n"
+    schedule_text = f"   <b>{group_name} - guruh Iqtidorli Talabalar </b>\n\n"
     for day, lessons in schedule.items():
         schedule_text += f"🔘 <b>{day}</b>\n"
         for lesson in lessons:

@@ -6,7 +6,7 @@ media/
 .idea/
 # C extensions
 *.so
-db.sqlite3
+# db.sqlite3
 # Distribution / packaging
 .Python
 build/
@@ -138,7 +138,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
-static/
+# static/
 # mypy
 .mypy_cache/
 .dmypy.json
