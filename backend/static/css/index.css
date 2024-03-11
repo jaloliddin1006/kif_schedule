@@ -186,7 +186,7 @@ body {
   border-radius: 10px;
 }
 #carouselHome .carousel-item img {
-  height: 550px;
+  height: 50vh;
   border-radius: 10px;
 }
 #carouselHome .carousel-control-prev-icon {
