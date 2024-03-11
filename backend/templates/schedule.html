@@ -23,7 +23,7 @@
         </a>
         <a href="{% url 'schedule' %}"  class="active">
           <ion-icon name="receipt-outline"></ion-icon>
-          Dars jadvali
+          Xonalar
         </a>
        
         <div class="scaner">
@@ -43,151 +43,39 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Xonalar/Paralar</th>
-              <th>1-para</th>
-              <th>2-para</th>
-              <th>3-para</th>
-              <th>4-para</th>
-              <th>5-para</th>
-              <th>6-para</th>
+              <th>Xonalar/Juftliklar</th>
+              
+              {% for para in paralar %}
+                <th >{{ para.time_start }}-{{ para.time_end }}</th>
+              {% endfor %}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>901-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>407-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>305-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>304-xona</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>601-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>603-xona</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>502-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>502-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>502-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>404-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>402-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>404-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>402-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>404-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-            </tr>
-            <tr>
-              <td>402-xona</td>
-              <td>-</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>bor</td>
-              <td>-</td>
-            </tr>
+            {% for room in schedule %}
+              <tr>
+                {% for para in room %}
+                  {% if forloop.counter == 1 %}
+                    {% if para.room.room %}
+                      <td>{{ para.room.room }}-xona</td>
+                    {% else %}
+                      <td>{{ para.room }}-xona</td>
+                      {% endif %}
+                  {% endif %}
+                  
+
+                  {% if para.room.room %}
+                  {% comment %} <td class='bg-success' >{{ para.subject }} </td> {% endcomment %}
+                  <td class='bg-success' >Dars</td>
+                  
+                  {% else %}
+                  <td class='bg-info'>-</td>
+                  {% endif %}
+                
+                {% endfor %}
+                
+              </tr>
+            {% endfor %}
+
           </tbody>
         </table>
         

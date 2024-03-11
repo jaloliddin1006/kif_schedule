@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-v5yrpdk2q!bawhoqgu=jozu5w#-0by&se8um-)yd&n^gfw5bt^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["schedule.mamatmusayev.uz"]
+ALLOWED_HOSTS = ["schedule.mamatmusayev.uz", '127.0.0.1']
 
 # CSRF_TRUSTED_ORIGINS = [
 #     'https://oqdevpy.jprq.live',
@@ -152,8 +152,8 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'#Location of static files
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,6 +1,16 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 
+DAY_CHOICES = (
+    ('Dushanba', 'Dushanba'), 
+    ('Seshanba', 'Seshanba'), 
+    ('Chorshanba', 'Chorshanba'), 
+    ('Payshanba', 'Payshanba'), 
+    ('Juma', 'Juma'), 
+    ('Shanba', 'Shanba')
+        )
+
+
 class BaseModel(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Yaratilgan sana")
@@ -86,8 +96,7 @@ class Schedule(BaseModel):
         "Ma'ruza", "Ma'ruza"), ('Laboratoriya', 'Laboratoriya')), verbose_name="Dars turi", default="Amaliyot")
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, verbose_name="O'qituvchi", null=True)
     room = models.ForeignKey( Room, on_delete=models.CASCADE, verbose_name="Xona")
-    day = models.CharField(max_length=50, choices=(('Dushanba', 'Dushanba'), ('Seshanba', 'Seshanba'), (
-        'Chorshanba', 'Chorshanba'), ('Payshanba', 'Payshanba'), ('Juma', 'Juma'), ('Shanba', 'Shanba')), verbose_name="Kun", default="Dushanba")
+    day = models.CharField(max_length=50, choices=DAY_CHOICES, verbose_name="Kun", default="Dushanba")
     para = models.ForeignKey(Para, on_delete=models.SET_NULL, verbose_name="Juftlik", null=True)
     week = models.CharField(max_length=20, choices=(('full', 'full'), ('odd', 'odd'), ('even', 'even')), verbose_name="Hafta", default="full")
     semester = models.CharField(max_length=20, choices=(('1', 'Kuzgi'), ('2', 'Bahorgi')), verbose_name="Semestr", default="2")
@@ -96,10 +105,26 @@ class Schedule(BaseModel):
         return f"{self.group} - {self.subject}"
 
     class Meta:
-        verbose_name = "Iqtidorli Talabalar"
-        verbose_name_plural = "Iqtidorli Talabalar"
+        verbose_name = "Dars Jadvali"
+        verbose_name_plural = "Dars Jadvali"
     
     # def get_para_display(self):
+    
+
+class BookingRoom(BaseModel):
+    subject = models.CharField(max_length=150, verbose_name="Sabab")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Xona")
+    day = models.CharField(max_length=50, choices=DAY_CHOICES, verbose_name="Kun", default="Dushanba")
+    para = models.ForeignKey(Para, on_delete=models.SET_NULL, verbose_name="Juftlik", null=True)
+    
+    class Meta:
+        verbose_name = "Xona bron qilish"
+        verbose_name_plural = "Bron qilingan xonalar"
+    
+    def __str__(self):
+        return self.subject
+    
+    
 
 class Document(BaseModel):
     title = models.CharField(max_length=50, verbose_name="Fayl nomi")

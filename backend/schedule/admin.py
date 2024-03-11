@@ -68,3 +68,12 @@ class BotUserAdmin(admin.ModelAdmin):
     list_display = ['tg_id', 'username', 'full_name', 'phone_number', 'id']
     search_fields = ['tg_id', 'username', 'full_name', 'phone_number']
     list_filter = ['tg_id', 'username', 'full_name', 'phone_number']
+
+
+@admin.register(BookingRoom)
+class BookingRoomAdmin(admin.ModelAdmin):
+    list_display = ['id', 'subject', 'room', 'day', 'para', 'is_active']
+    search_fields = ['subject', 'room', 'day', 'para']
+    list_display_links = ['id', 'subject', ]
+    list_filter = ['subject', 'room', 'day', 'para']
+    list_editable = ['room', 'day', 'para', 'is_active']
