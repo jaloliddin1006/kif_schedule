@@ -4,6 +4,7 @@ from django.views import View
 from schedule.models import Room, Para, Schedule, BookingRoom
 from django.db.models import Q
 from datetime import datetime
+from .utils import DAY_NAMES
 # Create your views here.
 
 class AboutFacultyView(View):
@@ -33,57 +34,13 @@ class DetailView(View):
     
 class ScheduleView(View):
     def get(self, request):
+        # print(request.GET.get('day'))
         day_names = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba']
         today_index = datetime.now().weekday() # hafta kuni: dushanba -> 0
         paralar = Para.objects.all()
         rooms = Room.objects.all().filter(Q(is_active=True)).order_by('room')
         daily_schedule = Schedule.objects.all().filter(Q(is_active=True) and Q(day = day_names[today_index])).order_by('day', 'para')
         booking_rooms = BookingRoom.objects.all().filter(Q(is_active=True) and Q(day = day_names[today_index])).order_by('day', 'para')  
-        
-        # schedule = {}
-        
-
-        # for room in rooms:
-        #     room_schedule = {}
-        #     for para in paralar:
-        #         try:
-        #             schedule_item = daily_schedule.get(room=room, para=para)
-        #             room_schedule[para] = schedule_item
-        #         except:
-        #             room_schedule[para] = None
-        #     schedule[room] = room_schedule
-            
-        # booking = {}
-        
-        # for room in rooms:
-        #     room_booking = {}
-        #     for para in paralar:
-        #         try:
-        #             booking_item = booking_rooms.get(room=room, para=para)
-        #             room_booking[para] = booking_item
-        #         except:
-        #             room_booking[para] = None
-        #     booking[room] = room_booking
-            
-            
-        # print(schedule)
-        # print(booking)
-        # ## schedule and booking is a 2D array
-        
-        # for room, paralar in schedule.items():
-        #     for para, dars in paralar.items():
-        #         # print(room, para, dars)
-        #         # print(booking.get(room).get(para))
-        #         if not dars:
-                    
-        #             schedule.get(room)[para] = booking.get(room).get(para)
-        #             # print(schedule.get(room).get(para))
-        #             # print(booking.get(room).get(para))
-        #         #     print(room, para)
-        # print("----")
-        # print(schedule)
-                    
-
         
         
         schedule = []
@@ -124,7 +81,7 @@ class ScheduleView(View):
         
         context = {
             'paralar': paralar,
-            'rooms': rooms,
+            'days': DAY_NAMES,
             'schedule': schedule,
         }
         return render(request, 'schedule.html', context) 
