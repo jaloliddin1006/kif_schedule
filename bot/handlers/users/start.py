@@ -22,7 +22,7 @@ async def start_bot(message: types.Message, state=FSMContext):
         # print(a)
     await message.answer(f"Assalomu alaykum {user_.full_name}", reply_markup=menu_btn)
 
-@dp.message_handler(text="📆 Iqtidorli Talabalar")
+@dp.message_handler(text="📆 Dars Jadvali")
 async def schedule_func(message: types.Message):
     await message.answer("Kursni tanlang", reply_markup=schedule_kurs_btn_func())
 

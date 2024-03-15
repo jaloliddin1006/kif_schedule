@@ -4,7 +4,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 menu_btn = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="📆 Iqtidorli Talabalar"),              
+            KeyboardButton(text="📆 Dars Jadvali"),              
             ],
         [
             KeyboardButton(text="📄 Talaba xujjatlari"),              
