@@ -81,3 +81,13 @@
         
       </div>
       {% endblock content %}
+
+{% block script %}
+function navigateToNewPage() {
+    var newPageUrl = "/";
+    window.location.href = newPageUrl;
+}
+
+setTimeout(navigateToNewPage,  3 * 30 * 1000); // 3 daqiya = 3 * 60 * 1000 millisekund
+
+{% endblock script %}

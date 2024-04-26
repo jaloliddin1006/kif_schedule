@@ -75,3 +75,14 @@
   
 
     {% endblock content %}
+
+
+{% block script %}
+function navigateToNewPage() {
+    var newPageUrl = "/dekanat/";
+    window.location.href = newPageUrl;
+}
+
+setTimeout(navigateToNewPage,  5 * 30 * 1000); // 5 daqiya = 5 * 60 * 1000 millisekund
+
+{% endblock script %}

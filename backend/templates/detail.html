@@ -53,3 +53,11 @@
         </div>
         {% endblock content %}
 
+{% block script %}
+function navigateToNewPage() {
+    var newPageUrl = "/news/";
+    window.location.href = newPageUrl;
+}
+setTimeout(navigateToNewPage,  2 * 30 * 1000); // 10 daqiya = 10 * 60 * 1000 millisekund
+
+{% endblock script %}
