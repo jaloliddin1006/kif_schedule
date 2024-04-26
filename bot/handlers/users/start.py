@@ -89,15 +89,17 @@ async def echo(message: types.Message, state: FSMContext):
     doc_id = message.text
     doc = get_sources_by_id(title=doc_id)
     docs = get_sources()
+    print(doc)
     # 'file_url': 'http://127.0.0.1:8000/media/documents/new.txt'
     if doc.get('file_url'):
         file_url = doc['file_url']
-        file_name = file_url.split("/")[-1]
-        caption = doc.get("description")
-        file = requests.get(file_url)
-        with open(f"{file_name}", "wb") as f:
-            f.write(file.content)
-        await message.answer_document(document=InputFile(file_name) ,caption=caption, reply_markup=student_documents_btn(docs))
+        print(file_url)
+        # file_name = file_url.split("/")[-1]
+        # caption = doc.get("description")
+        # file = requests.get(file_url)
+        # with open(f"{file_name}", "wb") as f:
+        #     f.write(file.content)
+        # await message.answer_document(document=InputFile(file_name) ,caption=caption, reply_markup=student_documents_btn(docs))
 
     await state.set_state("docs")
 
