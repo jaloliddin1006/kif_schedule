@@ -2,7 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 # Create your models here.
-
+    
 
 class AboutFaculty(models.Model):
     title = models.CharField(max_length=250, null=True)
@@ -15,12 +15,22 @@ class AboutFaculty(models.Model):
         return 'About Faculty'
     
 class AboutDepartmentPeople(models.Model):
+    STAFF_CHOICES = (
+    ('dekanat', 'Dekanat'),
+    ('kafedra', 'Kafedra'),
+    ('tutor', 'Tyutor'),
+    )
+    full_name = models.CharField(max_length=150)
     image = models.ImageField(upload_to='dekanat/')
+    department = models.CharField(max_length=150, choices=STAFF_CHOICES)
+    position = models.CharField(max_length=150)
+    reception_time = models.CharField(max_length=150)
+    phone = models.CharField(max_length=150)
+    email = models.CharField(max_length=150)
     place = models.IntegerField(default=1)
-    body = RichTextField()
     
     def __str__(self):
-        return self.body[:50]
+        return self.full_name
     
     
 class News(models.Model):

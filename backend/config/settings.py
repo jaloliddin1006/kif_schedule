@@ -1,5 +1,5 @@
 import os
-from jazzmin import *
+from jazzmin_config import *
 from pathlib import Path
 
 # from dotenv import load_dotenv
