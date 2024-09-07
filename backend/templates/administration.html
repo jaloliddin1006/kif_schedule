@@ -1,98 +1,167 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
-
 {% block sidebar %}
+  <div class="sidebar_content">
+    <a href="{% url 'about' %}" id="dashboard__product"><ion-icon name="home-outline"></ion-icon>Fakultet haqida</a>
+    <a href="{% url 'dekanat' %}" id="dashboard__blogs" class="active"><ion-icon name="apps-outline"></ion-icon>Ma'muriyat</a>
+    <a href="{% url 'students' %}"><ion-icon name="book-outline"></ion-icon>Iqtidorli talabalar</a>
+    <a href="{% url 'news' %}"><ion-icon name="newspaper-outline"></ion-icon>Yangiliklar</a>
+    <a href="{% url 'schedule' %}"><ion-icon name="receipt-outline"></ion-icon>Xonalar</a>
 
-      <div class="sidebar_content">
-        <a href="{% url 'about' %}" id="dashboard__product" >
-          <ion-icon name="home-outline"></ion-icon>
-          Fakultet haqida
-        </a>
-        <a href="{% url 'dekanat' %}" id="dashboard__blogs" class="active">
-          <ion-icon name="apps-outline"></ion-icon>
-          Ma'muriyat
-        </a>
-        <a href="{% url 'students' %}" >
-          <ion-icon name="book-outline"></ion-icon>
-          Iqtidorli talabalar
-        </a>
-        <a href="{% url 'news' %}">
-          <ion-icon name="newspaper-outline"></ion-icon>
-          Yangiliklar
-        </a>
-        <a href="{% url 'schedule' %}">
-          <ion-icon name="receipt-outline"></ion-icon>
-          Xonalar
-        </a>
-       
-        <div class="scaner">
-          <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
-          <p>Scan me</p>
-        </div>
-      </div>
-      
-      {% endblock sidebar %}
+    <div class="scaner">
+      <img src="{% static 'img/qr_code.png' %}" alt="QR Code" />
+      <p>Scan me</p>
+    </div>
+  </div>
+{% endblock %}
 
-
-
-      {% block content %}
-
-
-        <div class="home_page">
-          <h1 class="main_title">Fakultet Ma'muriyati</h1>
-          <div
-            id="carouselAdminstration"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner">
-              {% for people in dekanat %}
-              <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}" data-bs-interval="4000">
-                <div class="adminstration_wrapper">
-                  <img src="{{ people.image.url }}" width="100" alt="{{ people.image }}" />
+{% block content %}
+  <div class="home_page">
+    <div id="carouselAdminstration" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <div>
+            <h1 class="main_subtitle">Fakultet Ma'muriyati</h1>
+            <div class="adm_grid">
+              <div class="adm_grid_head">
+              {% for dekan in dekanat %}
+                {% if forloop.counter == 1 %}
+                  <img src="{{ dekan.image.url }}" width="100" alt="..." />
                   <div class="administration_content">
-                    {{ people.body|safe }}
+                    <h2>{{ dekan.full_name }}</h2>
+                    <p class="adm_rank">{{ dekan.position }}</p>
+                    <p>
+                      <span><i class="fa-solid fa-clock"></i> Qabul vaqti:</span> {{ dekan.reception_time }}
+                    </p>
+                    <p>
+                      <span><i class="fa-solid fa-phone"></i> Telefon:</span> {{ dekan.phone }}
+                    </p>
+                    <p>
+                      <span><i class="fa-solid fa-envelope"></i> Email:</span> {{ dekan.email }}
+                    </p>
                   </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+              <div class="adm_grid_extra">
+                {% for employee in dekanat %}
+                  {% if forloop.counter != 1 %}
+                  <div class="adm_grid_item">
+                    <img src="{{ employee.image.url }}" width="100" alt="..." />
+                    <div class="administration_content">
+                      <h2>{{ employee.full_name }}</h2>
+                      <p class="adm_rank">{{ employee.position }}</p>
+                      <p>
+                        <span><i class="fa-solid fa-clock"></i> Qabul vaqti:</span> {{ employee.reception_time }}
+                      </p>
+                      <p>
+                        <span><i class="fa-solid fa-phone"></i> Telefon:</span> {{ employee.phone }}
+                      </p>
+                      <p>
+                        <span><i class="fa-solid fa-envelope"></i> Email:</span> {{ employee.email }}
+                      </p>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="4000">
+          <div>
+            <h1 class="main_subtitle">Fakultet kafedra mudirlari</h1>
+            <div class="adm_grid">
+              {% for employee in kafedra %}
+              {% if forloop.counter == 1 %}
+              <div class="adm_grid_head">
+                <img src="{{ employee.image.url }}" width="100" alt="..." />
+                <div class="administration_content">
+                  <h2>{{ employee.full_name }}</h2>
+                  <p class="adm_rank">{{ employee.position }}</p>
+                  <p>
+                    <span><i class="fa-solid fa-clock"></i> Qabul vaqti:</span> {{ employee.reception_time }}
+                  </p>
+                  <p>
+                    <span><i class="fa-solid fa-phone"></i> Telefon:</span> {{ employee.phone }}
+                  </p>
+                  <p>
+                    <span><i class="fa-solid fa-envelope"></i> Email:</span> {{ employee.email }}
+                  </p>
+                </div>
+              </div>
+              
+              {% endif %}
+              {% endfor %}
+              <div class="adm_grid_extra">
+                {% for employee in kafedra %}
+                {% if forloop.counter != 1 %}
+                <div class="adm_grid_item">
+                  <img src="{{ employee.image.url }}" width="100" alt="..." />
+                  <div class="administration_content">
+                    <h2>{{ employee.full_name }}</h2>
+                    <p class="adm_rank">{{ employee.position }}</p>
+                    <p>
+                      <span><i class="fa-solid fa-clock"></i> Qabul vaqti:</span> {{ employee.reception_time }}
+                    </p>
+                    <p>
+                      <span><i class="fa-solid fa-phone"></i> Telefon:</span> {{ employee.phone }}
+                    </p>
+                    <p>
+                      <span><i class="fa-solid fa-envelope"></i> Email:</span> {{ employee.email }}
+                    </p>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="4000">
+          <div>
+            <h1 class="main_subtitle">Fakultet Tyutorlari</h1>
+            <div class="adm_tutor_grid">
+              {% for employee in tutors %}
+              <div class="adm_tutor_grid_item">
+                <img src="{{ employee.image.url }}" width="100" alt="..." />
+                <div class="administration_content">
+                  <h2>{{ employee.full_name }}</h2>
+                  <p class="adm_rank">{{ employee.position }}</p>
+                  <p>
+                    <span><i class="fa-solid fa-clock"></i> Qabul vaqti:</span> {{ employee.reception_time }}
+                  </p>
+                  <p>
+                    <span><i class="fa-solid fa-phone"></i> Telefon:</span> {{ employee.phone }}
+                  </p>
+                  <p>
+                    <span><i class="fa-solid fa-envelope"></i> Email:</span> {{ employee.email }}
+                  </p>
                 </div>
               </div>
               {% endfor %}
-
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselAdminstration"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselAdminstration"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
-    {% endblock content %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselAdminstration" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselAdminstration" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+{% endblock %}
 
 {% block script %}
-function navigateToNewPage() {
-    var newPageUrl = "/students/"; // O'zgartiring o'zingizga mos URL
-    window.location.href = newPageUrl;
-}
+  function navigateToNewPage() { var newPageUrl = "/students/"; // O'zgartiring o'zingizga mos URL window.location.href = newPageUrl; }
 
-setTimeout(navigateToNewPage,  5 * 30 * 1000); // 5 daqiya = 5 * 60 * 1000 millisekund
-
-{% endblock script %}
+  setTimeout(navigateToNewPage, 5 * 30 * 1000); // 5 daqiya = 5 * 60 * 1000 millisekund
+{% endblock %}

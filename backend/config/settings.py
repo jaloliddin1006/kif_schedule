@@ -1,5 +1,5 @@
 import os
-from jazzmin_config import *
+from .jazzmin_config import *
 from pathlib import Path
 
 # from dotenv import load_dotenv
@@ -153,7 +153,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'#Location of static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

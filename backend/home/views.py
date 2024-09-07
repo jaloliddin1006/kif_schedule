@@ -14,13 +14,23 @@ class AboutFacultyView(View):
     
 class DekanatView(View):
     def get(self, request):
-        dekanat = AboutDepartmentPeople.objects.all().order_by('place')
-        return render(request, 'administration.html', {'dekanat': dekanat})
+        dekanat = AboutDepartmentPeople.objects.filter(department='dekanat').order_by('place')[:5]
+        kafedra = AboutDepartmentPeople.objects.filter(department='kafedra').order_by('place')[:5]
+        tutors = AboutDepartmentPeople.objects.filter(department='tutor').order_by('place')[:10]
+        context = {
+                    'dekanat': dekanat,
+                   'kafedra': kafedra,
+                   'tutors': tutors
+                   }
+        
+        return render(request, 'administration.html', context)
+
 
 class StudentsView(View):
     def get(self, request):
-        students = Students.objects.all()
+        students = Students.objects.all().order_by("id")
         return render(request, 'students.html', {'students': students})
+      
       
 class NewsView(View):
     def get(self, request):
