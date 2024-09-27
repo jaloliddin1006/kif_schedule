@@ -7,7 +7,7 @@
     <a href="{% url 'dekanat' %}" id="dashboard__blogs" class="active"><ion-icon name="apps-outline"></ion-icon>Ma'muriyat</a>
     <a href="{% url 'students' %}"><ion-icon name="book-outline"></ion-icon>Iqtidorli talabalar</a>
     <a href="{% url 'news' %}"><ion-icon name="newspaper-outline"></ion-icon>Yangiliklar</a>
-    <a href="{% url 'schedule' %}"><ion-icon name="receipt-outline"></ion-icon>Xonalar</a>
+    {% comment %} <a href="{% url 'schedule' %}"><ion-icon name="receipt-outline"></ion-icon>Xonalar</a> {% endcomment %}
 
     <div class="scaner">
       <img src="{% static 'img/qr_code.png' %}" alt="QR Code" />
@@ -120,7 +120,7 @@
             </div>
           </div>
         </div>
-
+{% comment %} 
         <div class="carousel-item" data-bs-interval="4000">
           <div>
             <h1 class="main_subtitle">Fakultet Tyutorlari</h1>
@@ -145,7 +145,7 @@
               {% endfor %}
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
 
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselAdminstration" data-bs-slide="prev">

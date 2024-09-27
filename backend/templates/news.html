@@ -21,10 +21,10 @@
           <ion-icon name="newspaper-outline"></ion-icon>
           Yangiliklar
         </a>
-        <a href="{% url 'schedule' %}">
+        {% comment %} <a href="{% url 'schedule' %}">
           <ion-icon name="receipt-outline"></ion-icon>
           Xonalar
-        </a>
+        </a> {% endcomment %}
        
         <div class="scaner">
           <img src="{% static 'img/qr_code.png' %}" alt="QR Code">
@@ -104,7 +104,7 @@
 
 {% block script %}
 function navigateToNewPage() {
-    var newPageUrl = "/schedule/"; // O'zgartiring o'zingizga mos URL
+    var newPageUrl = "/"; // O'zgartiring o'zingizga mos URL
     window.location.href = newPageUrl;
 }
 
